@@ -1,0 +1,291 @@
+     /* --- Reset & Base Styles --- */
+        :root {
+            --blue-600: #2563eb;
+            --blue-700: #1d4ed8;
+            --blue-100: #dbeafe;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --white: #ffffff;
+            --red-500: #ef4444;
+            --red-700: #b91c1c;
+            --border-color: #d1d5db;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --border-radius: 0.375rem;
+        }
+ /* --- ABC --- */
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* --- Layout --- */
+        .container {
+            max-width: 1536px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 2rem;
+        }
+
+        .page-layout {
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;    color: #5e5e5e;
+        }
+
+        /* --- Components --- */
+        .breadcrumb {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .breadcrumb a:hover {
+            color: var(--blue-600);
+        }
+        .breadcrumb .current {
+            font-weight: 600;
+            color: var(--gray-700);
+        }
+        .breadcrumb .icon-link {
+            color: var(--blue-600);
+        }
+        .breadcrumb .icon-link:hover {
+            color: var(--blue-700);
+        }
+
+        .main-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .main-title a {
+            color: var(--gray-400);
+        }
+        .main-title a:hover {
+            color: var(--gray-600);
+        }
+
+        .sidebar {
+            width: 20%;
+            flex-shrink: 0;
+            background-color: var(--white);
+            padding: 0.75rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            align-self: flex-start; /* Giữ sidebar ở trên cùng */
+        }
+        .sidebar-nav ul {
+            list-style: none;
+        }
+        .sidebar-nav li + li {
+            margin-top: 0.25rem;
+        }
+        .sidebar-nav a {
+            display: block;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            color: var(--gray-700);
+            transition: background-color 0.2s;
+        }
+        .sidebar-nav a:hover {
+            background-color: var(--gray-100);
+        }
+        .sidebar-nav a.active {
+            background-color: var(--blue-100);
+            color: var(--blue-700);
+            font-weight: 600;
+        }
+        
+        .main-content {
+            width: 80%;
+            flex-grow: 1;
+        }
+
+        .content-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .content-tabs button {
+            background: none;
+            border: none;
+            padding: 0.5rem 1rem;
+            color: var(--gray-600);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px;
+        }
+        .content-tabs button.active {
+            border-color: var(--blue-600);
+            color: var(--blue-600);
+            font-weight: 600;
+        }
+
+        .form-card {
+            background-color: var(--white);
+            padding: 1rem;
+            margin-top: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+        }
+        .form-card form > div + div {
+             margin-top: .5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 2fr 10fr;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        .form-row label {
+            text-align: right;
+            font-weight: 500;
+            padding-top: 0.5rem;
+            color: #323232;
+    font-weight: 600;
+        }
+        .form-row label.checkbox-label {
+            text-align: left;
+            font-weight: normal;
+            padding-top: 0;
+        }
+        .form-row label .required {
+            color: var(--red-500);
+        }
+
+        .input-grid {
+            display: grid;
+            gap: 1rem;
+            align-items: center;
+        }
+        .input-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+        .input-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+
+        .form-header {
+            font-weight: 600;
+            color: var(--gray-600);
+        }
+
+        .form-control, .form-select, .form-checkbox {
+            border: 1px solid var(--border-color);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .form-control, .form-select {
+            width: -webkit-fill-available;
+            border-radius: var(--border-radius);
+            padding: 0.5rem 0.75rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .form-checkbox {
+            width: 1rem !important;
+            height: 1rem !important;
+            border-radius: 0.25rem;
+            color: var(--blue-600);
+        }
+        .form-control:focus, .form-select:focus, .form-checkbox:focus {
+            outline: none;
+            border-color: var(--blue-600);
+            box-shadow: 0 0 0 1px var(--blue-600);
+        }
+        .form-control[readonly], .form-select[disabled] {
+            background-color: var(--gray-100);
+            cursor: not-allowed;
+        }
+        
+        .input-with-icon {
+            position: relative;
+        }
+        .input-with-icon .icon {
+            position: absolute;
+            top: 50%;
+            right: 0.75rem;
+            transform: translateY(-50%);
+            color: var(--gray-400);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        .input-with-icon .form-control {
+            /*padding-right: 2.5rem;*/
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            font-weight: 600;
+            border-radius: var(--border-radius);
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .btn-primary {
+            background-color: var(--blue-600);
+            color: var(--white);
+        }
+        .btn-primary:hover {
+            background-color: var(--blue-700);
+        }
+
+        .validation-message {
+            display: block; /* Hiện mặc định */
+            margin-top: 0.5rem;
+            padding: 0.75rem;
+            background-color: #dbeafe; /* Màu nền thông tin */
+            border-left: 4px solid var(--blue-600);
+            color: #1e40af; /* Màu chữ thông tin */
+            font-size: 0.875rem;
+            border-radius: 0 0.25rem 0.25rem 0;
+        }
+        
+        .checkbox-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+      
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 25%;
+            }
+            .main-content {
+                width: 75%;
+            }
+            .form-row {
+                grid-template-columns: 3fr 7fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            .page-layout {
+                flex-direction: column;
+            }
+            .sidebar, .main-content {
+                width: 100%;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .form-row label {
+                text-align: left !important;
+                padding-top: 0;
+            }
+            .input-grid.cols-2, .input-grid.cols-3 {
+                grid-template-columns: 1fr;
+            }
+        }
